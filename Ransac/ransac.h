@@ -312,7 +312,7 @@ std::vector<double> siftBuildingFunc (std::vector<unsigned long> & inners,
     }
 
     cv::Mat W,U,Vt;
-    cv::SVDecomp(A,W,U,Vt);
+    cv::SVDecomp(A,W,U,Vt,cv::SVD::FULL_UV);
     int Rows = Vt.rows;
     double ratio = 1/Vt.at<double >(Rows-1,8);
 
@@ -338,7 +338,7 @@ std::vector<double> siftModelOptimizer(const std::vector<unsigned long> & inners
     }
 
     cv::Mat W,U,Vt;
-    cv::SVDecomp(A,W,U,Vt);
+    cv::SVDecomp(A,W,U,Vt,cv::SVD::FULL_UV);
     int Rows = Vt.rows;
     double ratio = 1/Vt.at<double >(Rows-1,8);
 
