@@ -23,8 +23,7 @@ def convolve(filter,mat,padding,strides):
                 for j in range(0,mat_size[0],strides[1]):
                     temp.append([])
                     for k in range(0,mat_size[1],strides[0]):
-                        val = (filter*pad_mat[j*strides[1]:j*strides[1]+filter_size[0],
-                                      k*strides[0]:k*strides[0]+filter_size[1]]).sum()
+                        val = (filter*pad_mat[j:j+filter_size[0],k:k+filter_size[1]]).sum()
                         temp[-1].append(val)
                 channel.append(np.array(temp))
 
@@ -36,8 +35,7 @@ def convolve(filter,mat,padding,strides):
             for j in range(0, mat_size[0], strides[1]):
                 channel.append([])
                 for k in range(0, mat_size[1], strides[0]):
-                    val = (filter * pad_mat[j * strides[1]:j * strides[1] + filter_size[0],
-                                    k * strides[0]:k * strides[0] + filter_size[1]]).sum()
+                    val = (filter * pad_mat[j:j + filter_size[0],k:k + filter_size[1]]).sum()
                     channel[-1].append(val)
 
 
