@@ -62,6 +62,9 @@ meanshift segmentation algorithm.
 * generalized hough transform  
 template match of images, detects a given template in an query image. The vote space is implemented with a sparse vector to support big images.  
 
+* closed-form image matting  
+a classic image matting algorithm proposed in ***A Closed-Form Solution to Natural Image Matting***  
+  
 * a lot to be continued...
 
 
