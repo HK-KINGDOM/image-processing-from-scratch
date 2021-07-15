@@ -12,8 +12,9 @@ int main()
     cv::imshow("1",img_);
     cv::waitKey(0);
 
-    SIFT::Keypoints keypoints = SIFT::extract(img);
-    SIFT::Keypoints keypoints_ = SIFT::extract(img_);
+    SIFT::Keypoints keypoints,keypoints_;
+    SIFT::extract(img,keypoints);
+    SIFT::extract(img_,keypoints_);
 
     SIFT::Keypoints m1,m2;
     SIFT::match(keypoints,keypoints_,m1,m2);

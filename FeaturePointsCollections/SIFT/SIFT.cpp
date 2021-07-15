@@ -22,7 +22,7 @@ namespace SIFT{
         return res;
     }
 
-    std::vector<float> GetMainDirection(const cv::Mat& img,int r,int c,int radius,float sigma,int BinNum,float& omax)
+    void GetMainDirection(const cv::Mat& img,int r,int c,int radius,float sigma,int BinNum,float& omax, std::vector<float>& hist)
     {
         float expf_scale = -1.0 / (2.0 * sigma * sigma);
 
@@ -76,7 +76,7 @@ namespace SIFT{
         temphist.insert(temphist.end(), temp[2]);
         temphist.insert(temphist.end(), temp[3]);
 
-        std::vector<float> hist;
+        hist.clear();
         hist.reserve(BinNum);
         for(int i = 0;i < BinNum;i++)
         {
@@ -84,7 +84,6 @@ namespace SIFT{
         }
 
         omax = *std::max_element(hist.begin(),hist.end());
-        return hist;
     }
 
     void calcSIFTDescriptor(const cv::Mat& img,float c,float r,double ori,double scl,int d,int n,double* dst,
@@ -234,7 +233,7 @@ namespace SIFT{
         }
     }
 
-    Keypoints extract(const cv::Mat &img) {
+    void extract(const cv::Mat &img, Keypoints& keypoints) {
         float SIFT_SIGMA = 1.6;
         float SIFT_INIT_SIGMA = 0.5;
         float sigma0 = std::sqrt(SIFT_SIGMA*SIFT_SIGMA-SIFT_INIT_SIGMA*SIFT_INIT_SIGMA);
@@ -289,7 +288,7 @@ namespace SIFT{
         float SIFT_INT_DESCR_FCTR = 512.0;
         float SIFT_FIXPT_SCALE = 1;
 
-        Keypoints keypoints;
+        keypoints.clear();
         int O_ = O;
         int S_ = S-1;
         for(int o = 0;o < O_;o++)
@@ -443,7 +442,8 @@ namespace SIFT{
                                     float scl_octv = kpt.scale*0.5/(1 << o);
                                     // Get Main Direction
                                     float omax;
-                                    std::vector<float> hist = GetMainDirection(GuassianPyramid[o][s_],x,y,int(std::roundf(SIFT_ORI_RADIUS * scl_octv)),SIFT_ORI_SIG_FCTR * scl_octv,BinNum,omax);
+                                    std::vector<float> hist;
+                                    GetMainDirection(GuassianPyramid[o][s_],x,y,int(std::roundf(SIFT_ORI_RADIUS * scl_octv)),SIFT_ORI_SIG_FCTR * scl_octv,BinNum,omax,hist);
 //                                    std::cout << omax << std::endl;
                                     float mag_thr = omax * SIFT_ORI_PEAK_RATIO;
                                     int l = 0,r2 = 0;
@@ -510,7 +510,6 @@ namespace SIFT{
 //                cv::waitKey(100);
 //            }
 //        }
-        return keypoints;
     }
 
     void match(const Keypoints &src1, const Keypoints &src2, Keypoints &match1, Keypoints &match2, int max_pairs) {
