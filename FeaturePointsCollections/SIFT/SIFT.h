@@ -1,7 +1,3 @@
-//
-// Created by lixin on 2021/6/19.
-//
-
 #ifndef IMAGE_PROCESSING_FROM_SCRATCH_SIFT_H
 #define IMAGE_PROCESSING_FROM_SCRATCH_SIFT_H
 #include <opencv2/opencv.hpp>

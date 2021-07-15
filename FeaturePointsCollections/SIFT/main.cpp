@@ -1,6 +1,3 @@
-//
-// Created by lixin on 2021/6/19.
-//
 #include "SIFT.h"
 int main()
 {
