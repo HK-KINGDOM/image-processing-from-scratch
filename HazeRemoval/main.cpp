@@ -1,5 +1,5 @@
 //
-// Created by lixin on 2021/7/16.
+// author: 会飞的吴克
 //
 #include "dehaze.h"
 

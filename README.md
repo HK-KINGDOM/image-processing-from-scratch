@@ -24,7 +24,7 @@ for c++, you need to compile first
     `make`  
 
 when it's done, you are ready to run the executable file by  
-    `./Main`  
+    `./program_name parameters`  
 Just make sure you have the images in the right path, and you might wanna modify the code a bit to process another image.  
 <strong>Have fun!</strong>  
 
