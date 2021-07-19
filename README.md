@@ -63,8 +63,10 @@ meanshift segmentation algorithm.
 template match of images, detects a given template in an query image. The vote space is implemented with a sparse vector to support big images.  
 
 * closed-form image matting  
-a classic image matting algorithm proposed in ***A Closed-Form Solution to Natural Image Matting***  
+  a classic image matting algorithm proposed in ***A Closed-Form Solution to Natural Image Matting***  
+  
+* haze removal  
+  Using dark channel prior and fast guided filter proposed in ***Single Image Haze Removal Using Dark Channel Prior*** and ***Fast Guided Filter***
   
 * a lot to be continued...
-
 
