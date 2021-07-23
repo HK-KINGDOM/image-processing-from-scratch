@@ -42,7 +42,7 @@ This algorithm detects corners.
 2-D fourier transform for images using fft.  
 
 * sift  
-Scale-invariant feature transform, a well-known technique to extract feature points for image matching.  
+Scale-invariant feature transform, a well-known technique to extract feature points for image matching. Now added c++ version along with SURF.  
 
 * KNN  
 Using balanced K-D tree to find k nearest neighbors of K-dimension points.  
