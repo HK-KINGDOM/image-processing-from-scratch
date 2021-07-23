@@ -7,12 +7,7 @@
 
 #include <opencv2/opencv.hpp>
 namespace SURF {
-#define __Assert__(x,msg)\
-do\
-{\
-    if(!(x)){throw std::runtime_error((msg));}\
-}while(false)
-
+    
     struct Keypoint{
 
         Keypoint()= default;
