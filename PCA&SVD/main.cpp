@@ -10,7 +10,7 @@
 void test_pca()
 {
     cv::Mat img = cv::imread("./PCA&SVD/0.jpg");
-    cv::imshow("nice girl",img);
+    cv::imshow("img",img);
     cv::waitKey(0);
 
     std::vector<std::vector<double > > data[img.channels()];
@@ -54,7 +54,7 @@ void test_pca()
     }
 
     cv::imwrite("./PCA&SVD/0_.jpg",res);
-    cv::imshow("nice girl",res);
+    cv::imshow("img",res);
     cv::waitKey(0);
 }
 
@@ -115,7 +115,7 @@ void test_svd()
 }
 
 int main() {
-    // test_pca();
-    test_svd();
+    test_pca();
+    // test_svd();
     return 0;
 }

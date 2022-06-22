@@ -5,11 +5,11 @@
 
 int main()
 {
-    cv::Mat img = cv::imread("./images/7.jpg");
+    cv::Mat img = cv::imread("./images/2.jpg");
     cv::imshow("1",img);
     cv::waitKey(0);
 
-    cv::Mat img_ = cv::imread("./images/07.jpg");
+    cv::Mat img_ = cv::imread("./images/2_.jpg");
     cv::imshow("1",img_);
     cv::waitKey(0);
 

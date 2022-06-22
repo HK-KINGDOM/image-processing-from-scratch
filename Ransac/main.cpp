@@ -26,15 +26,15 @@ void test_Ransac_line()
 
 void test_Ransac_sift()
 {
-    cv::Mat img1 = cv::imread("./Ransac/1.jpg");
-    cv::Mat img2 = cv::imread("./Ransac/1_.jpg");
+    cv::Mat img1 = cv::imread("./Ransac/2.jpg");
+    cv::Mat img2 = cv::imread("./Ransac/2_.jpg");
 
     cv::Mat image1, image2;
     cv::cvtColor(img1,image1,cv::COLOR_RGB2GRAY);
     cv::cvtColor(img2,image2,cv::COLOR_RGB2GRAY);    // 读取图像灰度化
 
-    cv::Ptr<cv::xfeatures2d::SiftFeatureDetector > detector = cv::xfeatures2d::SiftFeatureDetector::create();
-    cv::Ptr<cv::xfeatures2d::SiftDescriptorExtractor > descriptorExtractor = cv::xfeatures2d::SiftDescriptorExtractor::create();
+    cv::Ptr<cv::SiftFeatureDetector > detector = cv::SiftFeatureDetector::create();
+    cv::Ptr<cv::SiftDescriptorExtractor > descriptorExtractor = cv::SiftDescriptorExtractor::create(); // cv::xfeatures2d:: for older versions of Opencv
     std::vector<cv::KeyPoint> kpt1,kpt2;
     detector->detect(image1,kpt1);
     detector->detect(image2,kpt2);
@@ -189,7 +189,7 @@ void test_Ransac_sift()
 }
 
 int main() {
-    test_Ransac_line();
-    // test_Ransac_sift();
+    // test_Ransac_line();
+    test_Ransac_sift();
     return 0;
 }
